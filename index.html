@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PaintBrawl — Deathmatch</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game-canvas" width="960" height="544"></canvas>
+
+    <!-- ===== Connect / Menu ===== -->
+    <div id="menu">
+      <div class="menu-card">
+        <h1>PAINT<span>BRAWL</span></h1>
+        <p class="tagline">Real-time paintball deathmatch</p>
+        <label>Name</label>
+        <input id="player-name" maxlength="16" placeholder="Your name" autocomplete="off" />
+        <label>Server URL</label>
+        <input id="server-url" placeholder="wss://your-app.up.railway.app" autocomplete="off" />
+        <button id="connect-btn">Play</button>
+        <div id="error"></div>
+        <div class="controls-hint">
+          <strong>Controls</strong>
+          <span>W/A/D or Arrows — move &amp; jump</span>
+          <span>Mouse — aim · Click — fire</span>
+          <span>S / ↓ — throw splat bomb</span>
+          <span>1 / 2 — Blaster / Sniper</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== In-game HUD overlays ===== -->
+    <div id="hud" style="display:none">
+      <!-- Big center timer -->
+      <div id="timer">05:00</div>
+
+      <!-- Top-left scaling leaderboard -->
+      <div id="leaderboard">
+        <div class="lb-title">LEADERBOARD</div>
+        <table>
+          <thead><tr><th>#</th><th>Name</th><th>K</th></tr></thead>
+          <tbody id="lb-body"></tbody>
+        </table>
+      </div>
+
+      <!-- Top-right utility icons -->
+      <div id="utils">
+        <span id="ping" class="ping">0ms</span>
+        <button id="btn-audio" title="Audio">🔊</button>
+        <button id="btn-home" title="Leave">🏠</button>
+      </div>
+
+      <!-- Kill feed (right side) -->
+      <div id="killfeed"></div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
